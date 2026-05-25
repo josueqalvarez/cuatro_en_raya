@@ -10,3 +10,14 @@ class Tablero:
                 fila_tablero = fila_tablero + "⚪️ "
             print(f'{fila_tablero}\n')
 
+    def mover_ficha(self, jugador: Jugador, fila, columna):
+        while (True):
+            fil = input("Ingresa el N° de fila")
+            col = input("Ingresa el N° de columna")
+
+            if not (fil > 0 and fil <= self.filas):
+                err = "filas"
+            else if (col > 0 and col <= self.columnas):
+                col = "columnas"
+
+        
