@@ -11,13 +11,27 @@ class Tablero:
             print(f'{fila_tablero}\n')
 
     def mover_ficha(self, jugador: Jugador, fila, columna):
-        while (True):
-            fil = input("Ingresa el N° de fila")
-            col = input("Ingresa el N° de columna")
 
-            if not (fil > 0 and fil <= self.filas):
-                err = "filas"
-            else if (col > 0 and col <= self.columnas):
-                col = "columnas"
+        fil_ver = True
+        col_ver = True
+
+        while (True):
+
+            if (fil_ver):
+                fil = input("Ingresa el N° de fila")
+                if (fil < 1 or fil > self.filas):
+                    print(f'El numero de fila debe ser entre 1 y {self.filas}')                                                 continue
+                else:    
+                    fil_ver = False
+
+            if (col_ver):
+                col = input("Ingresa el N° de columna")
+                if (col < 1 or col > self.colummas):
+                    print(f'El numero de fila debe ser entre 1 y {self.columnas}')
+                    continue
+                else:
+                    col_ver = False
+
+           print(f'Fila: {fil}, Columna: {col}')
 
         
