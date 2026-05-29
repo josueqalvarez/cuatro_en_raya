@@ -12,7 +12,7 @@ class DoubleLinkedList:
 
     def prepend(self, nuevo_nodo: Nodo):
         
-        if (self.home = None):
+        if self.home == None:
             self.home = nuevo_nodo
             self.tail = nuevo_nodo
         else:
@@ -24,12 +24,12 @@ class DoubleLinkedList:
         self.size += 1
     
     
-    def append(self, nuevo_nodo: Nodo):
+   # def append(self, nuevo_nodo: Nodo):
 
 
 
     def shift(self):
-        if (self.home = None or self.home.derecha):
+        if self.home == None or self.home.derecha:
             print("No hay nodos suficientes")
         else:
             self.home = self.home.derecha
@@ -38,8 +38,8 @@ class DoubleLinkedList:
         self.size -= 1
 
 
-    del pop(self):
-        if (self.home = None or self.home.derecha):
+    def pop(self):
+        if self.home == None or self.home.derecha:
             print("No hay nodos suficientes")
         else:
             self.tail = self.tail.izquierda
