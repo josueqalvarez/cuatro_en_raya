@@ -20,12 +20,29 @@ class DoubleLinkedList:
             self.home = nuevo_nodo
             self.home.derecha = temp
             temp.izquierda = self.home
-        
+            
+            if temp.derecha == None:
+                self.tail = temp
+
         self.size += 1
     
     
-   # def append(self, nuevo_nodo: Nodo):
-
+    def append(self, nuevo_nodo: Nodo):
+        
+        if self.home == None:
+            self.home = nuevo_nodo
+            self.tail = nuevo_nodo
+        elif self.home.derecha == None:
+            self.tail = nuevo_nodo
+            self.tail.izquierda = self.home
+            self.home.derecha = self.tail
+        else:
+            temp = self.tail
+            temp.derecha = nuevo_nodo
+            nuevo_nodo.izquierda = temp
+            self.tail = temp
+        
+        self.size += 1
 
 
     def shift(self):
@@ -47,3 +64,23 @@ class DoubleLinkedList:
 
         self.size -= 1
 
+
+    def get(self, indice):
+        
+        temp = self.home
+
+        if indice <= self.size and indice > 0:
+            for i in range(indice):
+                if (i+1) == indice:
+                    print(i+1 , " ", temp.valor)
+                else:
+                    temp = temp.derecha
+
+
+
+dll = DoubleLinkedList()
+
+dll.prepend(Nodo("primero"))
+dll.append(Nodo("segundo"))
+dll.append(Nodo("tercero"))
+dll.get(3)
